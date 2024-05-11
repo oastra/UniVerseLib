@@ -29,6 +29,12 @@
   border: none;
 }
 
+@media (max-width: 756px) {
+  .navbar {
+    background-color: #2b3041;
+  }
+}
+
 @media (max-width: 1000px) {
   .hero .image-container {
     display: flex;

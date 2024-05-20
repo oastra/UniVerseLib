@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['username'] = $email;
                 $_SESSION['role'] = $role;
                 echo '<script>alert("Registration successful!")</script>';
-                echo "<script>setTimeout(function(){ window.location.href = 'Choose-book.php'; }, 1000);</script>";
+                echo "<script>setTimeout(function(){ window.location.href = 'dashboard.php'; }, 1000);</script>";
                 exit;
             } else {
                 $errors[] = "Error: " . $sql . "<br>" . $conn->error;

@@ -15,3 +15,11 @@ function userScroll() {
     });
 }
 document.addEventListener("DOMContentLoaded", userScroll);
+
+// close the modal 1
+
+document.getElementById("registerBtn").addEventListener("click", function () {
+  var modal = new bootstrap.Modal(document.getElementById("modal1"));
+  modal.hide();
+  window.location.href = "#header";
+});

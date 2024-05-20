@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="UniVerse Library is the official library of the Australian University, providing students, faculty, and researchers with easy access to a vast collection of books and resources from various publishers and authors.">
+    <meta name="keywords" content="UniVerse Library, Australian University, library resources, academic library, university library, research resources, books, ebooks, academic events, student workshops, research collaboration, PhD coworking spaces, career development, internships, volunteering programs">
+    <meta name="Olha Chernysh" content="UniVerse Library">
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
       rel="stylesheet"
@@ -12,16 +16,17 @@
     <link rel="stylesheet" href="css/bootstrap.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="images/favicon.png" />
-    <title>Free E-Book | Start Your Own Blog</title>
+    <title>UniVerse Lib | Australian University Library</title>
   </head>
   <body>
     <!-- NAvigaation -->
 
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
       <div class="container">
-        <a href="index.html" class="navbar-brand">
-          <img src="images/logo.png" alt="" width="225" />
-        </a>
+        <a href="index.html" class="navbar-brand fs-3">
+          <img src="images/library-logo.png" alt="" width="70" />
+          UniVerse<i class="fa-solid fa-feather"></i>Lib
+        </a><span> </span>
         <button
           class="navbar-toggler"
           type="button"
@@ -36,22 +41,95 @@
               <a href="index.html" class="nav-link fw-semibold">Home</a>
             </li>
             <li class="nav-item">
-              <a href="details" class="nav-link fw-semibold">Details</a>
+              <a href="#details" class="nav-link fw-semibold">Details</a>
             </li>
             <li class="nav-item">
               <a
-                href="contact.html"
-                class="nav-link btn btn-outline-light fw-semibold px-4 mx-4 fw-semibold"
-                >Contact</a
+                href="#events"
+                class="nav-link fw-semibold"
+                >Events</a
               >
+            </li> 
+         
+        <li class="nav-item ms-4">
+          <a href="#" class="nav-link fw-semibold" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="fa-regular fa-user fa-2x"></i></a>
+        </li>
+          <li class="nav-item">
+          <a href="#" class="nav-link fw-semibold btn btn-outline-light px-4" data-bs-toggle="modal" data-bs-target="#signupModal"><i class="fa-regular fa-user-plus"></i></a>
+        </li>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
+<!-- Sign-Up Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="signup.php" method="post" class="p-1">
+          <div class="mb-3">
+            <label for="signupFirstName" class="form-label">First Name</label>
+            <input type="text" class="form-control form-control-md rounded-5 p-2" id="signupFirstName" name="first_name" required>
+          </div>
+          <div class="mb-3">
+            <label for="signupLastName" class="form-label">Last Name</label>
+            <input type="text" class="form-control form-control-md rounded-5 p-2" id="signupLastName" name="last_name" required>
+          </div>
+          <div class="mb-3">
+            <label for="signupEmail" class="form-label">Email Address (Username)</label>
+            <input type="email" class="form-control form-control-md rounded-5 p-2" id="signupEmail" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="signupPassword" class="form-label">Password</label>
+            <input type="password" class="form-control form-control-md rounded-5 p-2" id="signupPassword" name="password" required>
+          </div>
+          <div class="mb-3">
+            <label for="signupRetypePassword" class="form-label">Re-type Password</label>
+            <input type="password" class="form-control form-control-md rounded-5 p-2" id="signupRetypePassword" name="retype_password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form action="login.php" method="post" class="p-1">
+          <div class="mb-3">
+            <label for="loginEmail" class="form-label">Email Address</label>
+            <input type="email" class="form-control form-control-md rounded-5 p-2" id="loginEmail" name="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="loginPassword" class="form-label">Password</label>
+            <input type="password" class="form-control form-control-md rounded-5 p-2" id="loginPassword" name="password" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
     <!-- Header -->
-    <header class="header">
+    <header id="header" class="header">
       <div class="hero text-white pt-7">
         <div class="container-xl">
           <div class="row">
@@ -62,27 +140,36 @@
             </div>
             <div class="col-md-6">
               <div class="text-container p-4 d-flex flex-column justify content-center h-100 md-5">
-                <h1 class="display-3 fw-bold">Welcome to Blog Mastery</h1>
+                <h1 class="display-3 fw-bold">Welcome to UniVerse Lib</h1>
                 <p class="lead">
-                   Are you ready to take your blogging journey to new heights?
-                  Blog Mastery is your ultimate guide to creating and managing a
-                  successful blog that captivates your audience and drives
-                  engagement.
-                </p>
+                    The official library of the Australian University, providing students, faculty, and researchers with easy access to a vast collection of books and resources from various publishers and authors. Experience seamless integration of physical and digital resources, supporting your academic and research needs.
+        </p>
+        </p>
 
                 <!-- Form -->
 
                 <div class="form-container text-center">
-                  <form >
-                    <div class="my-4">
-                      <input type="text" class="form-control form-control-lg rounded-5" placeholder="Email Address"/>
-                    </div>
-                    <div class="d-grid">
-                      <button class="btn btn-lg btn-primary text-white">
-                      Free Download
-                      </button>
-                    </div>
-                  </form>
+                   <form>
+                <div class="my-3">
+                    <input type="text" class="form-control form-control-md rounded-5" placeholder="Your Name"/>
+                </div>
+                <div class="my-3">
+                    <input type="email" class="form-control form-control-md rounded-5" placeholder="Email Address"/>
+                </div>
+                <div class="my-3">
+                    <select class="form-control form-control-md rounded-5">
+                        <option value="" disabled selected>Select Event</option>
+                        <option value="event1">Book Reading</option>
+                        <option value="event2">Workshop</option>
+                        <option value="event3">Author Meet & Greet</option>
+                    </select>
+                </div>
+                <div class="d-grid">
+                    <button class="btn btn-lg btn-primary text-white">
+                        Register for Event
+                    </button>
+                </div>
+            </form>
                 </div>
               </div>
             </div>
@@ -116,67 +203,64 @@
   <div class="container-xl">
     <div class="row hstack g-4">
       <div class="col-md-4 d-flex gap-4">
-        <i class="fas fa-user fa-3x text-primary"></i>
+        <i class="fas fa-book fa-3x text-primary"></i>
         <div>
-          <h5 class="fw-bold">Unlock Your Blogging Potential</h5>
-          <p class="text-muted">Discover the key to unleashing your true blogging potential. Our
-                ebook provides expert guidance on creating compelling content</p>
+          <h5 class="fw-bold">Explore Our Collection</h5>
+          <p class="text-muted">Discover a wide range of books and resources available at your fingertips. Our extensive collection supports all your learning and reading needs.</p>
         </div>
       </div>
       <div class="col-md-4 d-flex gap-4">
-        <i class="fas fa-rocket fa-3x text-secondary"></i>
+        <i class="fas fa-calendar-alt fa-3x text-secondary"></i>
         <div>
-          <h5 class="fw-bold">Skyrocket Your Blog's Success</h5>
-          <p class="text-muted">Take your blog to new heights with our proven strategies for
-                driving traffic and increasing your blog's visibility.</p>
+          <h5 class="fw-bold">Stay Updated with Events</h5>
+          <p class="text-muted">Join our community events, workshops, and book readings. Stay engaged with our exciting calendar of events designed for all ages and interests.</p>
         </div>
       </div>
       <div class="col-md-4 d-flex gap-4">
-        <i class="fas fa-dollar fa-3x text-primary"></i>
+        <i class="fas fa-user-friends fa-3x text-primary"></i>
         <div>
-          <h5 class="fw-bold">Monetize Your Blog</h5>
-          <p class="text-muted">Turn your passion for blogging into a profitable venture. Our
-                ebook reveals tried-and-tested monetization strategies</p>
+          <h5 class="fw-bold">Join Our Community</h5>
+          <p class="text-muted">Connect with other readers and learners. Our platform fosters a community of knowledge-sharing and support for all your educational goals.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- Details -->
+
+
+<!-- Details 1 -->
 <section id="details" class="details my-5">
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
         <div class="text-container d-flex flex-column justify-content h-100">
-          <h2 class="display-6">Unlock Your Blogging Potential</h2>
-          <p>
-            Are you ready to unleash your true blogging potential? Our
-                ebook, "Blog Mastery," provides you with the tools and knowledge
-                to take your blog to the next level.
-          </p>
-          <ul class="list-group-flush lh-lg">
-            <li class="list-group-item">
-              <i class="fas fa-square text-primary"></i>
-              <strong>Unleash Your Creativity:</strong>
-              Our ebook empowers
-                  you to unleash your creativity and express your unique voice
-                  through your blog.
-            </li>
-            <li class="list-group-item">
-              <i class="fas fa-square text-primary"></i>
-              <strong>Maximize Your Reach:</strong>
-              Learn how to optimize
-                  your blog for search engines.
-            </li>
-            <li class="list-group-item">
-              <i class="fas fa-square text-primary"></i>
-              <strong>Monetization Strategies:</strong>
-              Discover various
-                  monetization strategies, such as sponsored content & affiliate
-                  marketing.
-            </li>
-          </ul>
-          <a  class="btn btn-primary text-white mt-4 align-self-start" data-bs-toggle="modal" data-bs-target="#modal1">Get Your Copy Now</a>
+         <h2 class="display-6">Engage in Our Academic Events</h2>
+    <p>
+      Join us for a variety of academic events tailored for university students, faculty, and researchers. Whether you're looking to spark creativity, learn new skills, or connect with others in your field, our events offer something for everyone.
+    </p>
+    <ul class="list-group-flush lh-lg">
+      <li class="list-group-item">
+        <i class="fas fa-square text-primary"></i>
+        <strong>Student Workshops:</strong>
+        Participate in workshops and seminars designed to enhance your academic skills and knowledge.
+      </li>
+      <li class="list-group-item">
+        <i class="fas fa-square text-primary"></i>
+        <strong>Research Collaboration:</strong>
+        Engage in collaborative research events and discussions with fellow researchers and faculty members.
+      </li>
+      <li class="list-group-item">
+        <i class="fas fa-square text-primary"></i>
+        <strong>PhD Coworking Spaces:</strong>
+        Utilize our dedicated coworking spaces for PhD students, providing a productive environment for research and collaboration.
+      </li>
+      <li class="list-group-item">
+        <i class="fas fa-square text-primary"></i>
+        <strong>English Club Meetings:</strong>
+        Join our English Club meetings specifically designed for international students to improve their English language skills through engaging and interactive sessions.
+      </li>
+    </ul>
+          <a  class="btn btn-primary text-white mt-4 align-self-start" data-bs-toggle="modal" data-bs-target="#modal1">Choose Your Event</a>
         </div>
 
       </div>
@@ -199,35 +283,35 @@
         </div>
         <div class="col-lg-6">
           <div class="text-container">
- <h2 class="display-6">Unlock Your Blogging Potential</h2>
-          <p>
-            Are you ready to unleash your true blogging potential? Our
-                ebook, "Blog Mastery," provides you with the tools and knowledge
-                to take your blog to the next level.
-          </p>
-          <ul class="list-group-flush lh-lg">
-            <li class="list-group-item">
-              <i class="fas fa-square text-primary"></i>
-              <strong>Unleash Your Creativity:</strong>
-              Our ebook empowers
-                  you to unleash your creativity and express your unique voice
-                  through your blog.
-            </li>
-            <li class="list-group-item">
-              <i class="fas fa-square text-primary"></i>
-              <strong>Maximize Your Reach:</strong>
-              Learn how to optimize
-                  your blog for search engines.
-            </li>
-            <li class="list-group-item">
-              <i class="fas fa-square text-primary"></i>
-              <strong>Monetization Strategies:</strong>
-              Discover various
-                  monetization strategies, such as sponsored content & affiliate
-                  marketing.
-            </li>
-          </ul>
-          <a href="" class="btn btn-primary text-white">Free Download</a>
+<h2 class="display-6">Academic and Community Events:</h2>
+<p>
+  Participate in a variety of enriching events, workshops, and book readings at UniVerse Library. Please register to attend these events to ensure your spot.
+</p>
+<ul class="list-group-flush lh-lg">
+  <li class="list-group-item">
+    <i class="fas fa-square text-primary"></i>
+    <strong>Research Skills Workshop:</strong> June 10, 2024 - 2:00 PM at the Main Library
+  </li>
+  <li class="list-group-item">
+    <i class="fas fa-square text-primary"></i>
+    <strong>Academic Writing Workshop:</strong> June 15, 2024 - 4:00 PM at the West Campus Branch
+  </li>
+  <li class="list-group-item">
+    <i class="fas fa-square text-primary"></i>
+    <strong>Author Meet & Greet:</strong> June 20, 2024 - 1:00 PM at the East Campus Branch
+  </li>
+  <li class="list-group-item">
+    <i class="fas fa-square text-primary"></i>
+    <strong>PhD Research Collaboration:</strong> June 25, 2024 - 3:00 PM at the North Campus Branch
+  </li>
+  <li class="list-group-item">
+    <i class="fas fa-square text-primary"></i>
+    <strong>Graduate Career Fair:</strong> June 30, 2024 - 11:00 AM at the South Campus Branch
+  </li>
+</ul>
+<a href="#header" id="registerBtn" class="btn btn-primary text-white">Register for Event</a>
+
+
 
           <button class="btn btn-light" data-bs-dismiss="modal">Close</button>
 
@@ -245,18 +329,10 @@
     <div class="row">
       <div class="col-12">
         <div class="text-container bg-light p-5 rounded-5">
-          <h2>Master the Art of Blogging Excellence</h2>
-              <p>
-                Transform your blog from a mere hobby to a thriving online
-                business with our ebook, "Blog Mastery: Monetize Your Passion."
-                This invaluable resource is your roadmap to turning your blog
-                into a profitable venture. Learn how to monetize your content
-                through various strategies such as sponsored posts, affiliate
-                marketing, and product creation. Gain insights into building a
-                strong brand, attracting lucrative partnerships, and maximizing
-                your earning potential. Take the leap and unlock the financial
-                rewards of your blogging journey.
-              </p>
+       <h2>Embrace the Joy of Reading</h2>
+          <p>
+            Discover the timeless tradition of reading with our extensive collection of books and magazines. There's something uniquely satisfying about holding a book, feeling the texture of the pages, and immersing yourself in the distinct aroma of printed paper. These sensory experiences not only enhance your reading pleasure but also stimulate your imagination and creativity. Whether for leisure or academic purposes, reading books can transport you to different worlds, expand your knowledge, and inspire new ideas. Join us in preserving this cherished tradition and let your imagination soar with every turn of the page.
+          </p>
         </div>
       </div>
     </div>
@@ -265,7 +341,7 @@
 
 <!-- Deatils 2 -->
 
-<section class="details my-5">
+<section id="events" class="details my-5">
   <div class="container">
     <div class="row">
       <div class="col-lg-6">
@@ -275,35 +351,33 @@
       </div>
 <div class="col-lg-6">
   <div class="text-container d-flex flex-column justify-content h-100">
-          <h2 class="display-6">Craft Remarkable Content</h2>
-          <p>
-            Discover techniques for effective storytelling, engaging
-                  visuals, and compelling calls-to-action. Unlock the secrets of
-                  creating a consistent and authentic brand voice that sets you
-                  apart from the competition.
-          </p>
-          <ul class="list-group-flush lh-lg">
-            <li class="list-group-item">
-              <i class="fas fa-square text-primary"></i>
-              <strong>Embrace Your Unique Voice:</strong>
-              Learn how to
-                    harness the power of your unique voice.
-            </li>
-            <li class="list-group-item">
-              <i class="fas fa-square text-primary"></i>
-              <strong>Spark Creativity:</strong>
-              Explore techniques to
-                    spark creativity and overcome writer's block.
-            </li>
-            <li class="list-group-item">
-              <i class="fas fa-square text-primary"></i>
-              <strong>Engage Your Readers:</strong>
-              Discover strategies
-                    for creating content that engages your readers on a deeper
-                    level.
-            </li>
-          </ul>
-          <a  class="btn btn-primary text-white mt-4 align-self-start" data-bs-toggle="modal" data-bs-target="#modal2">Learn More</a>
+   <h2 class="display-6">Engage in Our Exciting Events</h2>
+    <p>
+      Join us for a variety of events tailored for university students, faculty, and professionals. Whether you're looking to contribute to the community, enhance your career, or connect with industry leaders, our events offer something for everyone.
+    </p>
+    <ul class="list-group-flush lh-lg">
+      <li class="list-group-item">
+        <i class="fas fa-square text-primary"></i>
+        <strong>Volunteering Programs:</strong>
+        Participate in various volunteering programs across different branches, including community service, library assistance, and educational outreach.
+      </li>
+      <li class="list-group-item">
+        <i class="fas fa-square text-primary"></i>
+        <strong>Internship Opportunities:</strong>
+        Discover internship opportunities with leading companies and organizations. Gain valuable work experience and insights into your chosen field.
+      </li>
+      <li class="list-group-item">
+        <i class="fas fa-square text-primary"></i>
+        <strong>Meetings with Career Advisors:</strong>
+        Schedule one-on-one sessions with career advisors to discuss your career path, resume building, and job search strategies.
+      </li>
+      <li class="list-group-item">
+        <i class="fas fa-square text-primary"></i>
+        <strong>Company Meet & Greets:</strong>
+        Attend meetings with representatives from companies offering internships and job opportunities. Network and learn about potential career paths and requirements.
+      </li>
+    </ul>
+          <a  class="btn btn-primary text-white mt-4 align-self-start" data-bs-toggle="modal" data-bs-target="#modal2">Choose Your Event</a>
         </div> 
 </div>
     </div>
@@ -322,33 +396,30 @@
             </div>
             <div class="col-lg-6">
               <div class="text-container">
-                <h3 class="display-6">Craft Remarkable Content</h3>
+                <h3 class="display-6">June 2024 Academic and Career Events</h3>
 
-                <p>
-                  Discover techniques for effective storytelling, engaging
-                  visuals, and compelling calls-to-action. Unlock the secrets of
-                  creating a consistent and authentic brand voice that sets you
-                  apart from the competition.
-                </p>
-                <ul class="list-group list-group-flush lh-lg mb-3">
-                  <li class="list-group-item">
-                    <i class="fas fa-square text-primary"></i>
-                    <strong>Embrace Your Unique Voice:</strong> Learn how to
-                    harness the power of your unique voice.
-                  </li>
-                  <li class="list-group-item">
-                    <i class="fas fa-square text-primary"></i>
-                    <strong>Spark Creativity:</strong> Explore techniques to
-                    spark creativity and overcome writer's block.
-                  </li>
-                  <li class="list-group-item">
-                    <i class="fas fa-square text-primary"></i>
-                    <strong>Engage Your Readers:</strong> Discover strategies
-                    for creating content that engages your readers on a deeper
-                    level.
-                  </li>
-                </ul>
-                <a href="" class="btn btn-primary text-white">Free Download</a>
+<p>
+  Participate in a variety of academic and career-focused events at UniVerse Library. 
+</p>
+<ul class="list-group list-group-flush lh-lg mb-3">
+  <li class="list-group-item">
+    <i class="fas fa-square text-primary"></i>
+    <strong>Volunteering Programs:</strong> June 5, 2024 - 10:00 AM at the Main Library. Participate in community service, library assistance, and educational outreach programs.
+  </li>
+  <li class="list-group-item">
+    <i class="fas fa-square text-primary"></i>
+    <strong>Internship Opportunities:</strong> June 12, 2024 - 2:00 PM at the West Campus Branch. Discover internship opportunities with leading companies and organizations.
+  </li>
+  <li class="list-group-item">
+    <i class="fas fa-square text-primary"></i>
+    <strong>Meetings with Career Advisors:</strong> June 18, 2024 - 11:00 AM at the East Campus Branch. Schedule one-on-one sessions to discuss your career path, resume building, and job search strategies.
+  </li>
+  <li class="list-group-item">
+    <i class="fas fa-square text-primary"></i>
+    <strong>Company Meet & Greets:</strong> June 25, 2024 - 3:00 PM at the North Campus Branch. Attend meetings with representatives from companies offering internships and job opportunities.
+  </li>
+</ul>
+                <a href="" class="btn btn-primary text-white">Register for Event</a>
                 <button class="btn btn-light" data-bs-dismiss="modal">
                   Close
                 </button>
@@ -359,45 +430,134 @@
       </div>
     </div>
 
+    <!-- FAQ -->
+<section class="faq mb-6">
+  <div class="container">
+  <div class="row">
+    <div class="col-12">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingOne">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+       <i class="fa-solid fa-clipboard-question fa-2x text-primary me-3"></i>How do I join the library?
+      </button>
+    </h2>
+    <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        Joining the library is easy! You can either register online through our website or visit any of our library branches in person. You'll need to provide proof of identity and address.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+        <i class="fa-solid fa-clipboard-question fa-2x text-primary me-3"></i>How many items can I borrow?
+      </button>
+    </h2>
+    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        Members can borrow up to 10 items at a time. This includes books, DVDs, and other materials available in our collection.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+      <i class="fa-solid fa-clipboard-question fa-2x text-primary me-3"></i>How long can I borrow items for?
+      </button>
+    </h2>
+    <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        The borrowing period for most items is 3 weeks. DVDs and other special items may have different borrowing periods, so please check at the time of borrowing.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+         <i class="fa-solid fa-clipboard-question fa-2x text-primary me-3"></i>Can I extend the due date?
+      </button>
+    </h2>
+    <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        Yes, you can renew your borrowed items if no other member has reserved them. Renewals can be done online through your account, by phone, or in person at any branch.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
+         <i class="fa-solid fa-clipboard-question fa-2x text-primary me-3"></i>What if I have lost my card?
+      </button>
+    </h2>
+    <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        If you have lost your library card, please report it to us immediately. You can visit any branch to get a replacement card. There may be a small fee for issuing a new card.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingSix">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
+       <i class="fa-solid fa-clipboard-question fa-2x text-primary me-3"></i>Can I have an item transferred from another library branch?
+      </button>
+    </h2>
+    <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        Yes, you can request to have an item transferred from another branch to your preferred branch for pickup. This can be done online, over the phone, or in person.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="flush-headingSeven">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
+         <i class="fa-solid fa-clipboard-question fa-2x text-primary me-3"></i>What are the fees & charges?
+      </button>
+    </h2>
+    <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
+      <div class="accordion-body">
+        Most library services are free. However, there may be fees for overdue items, lost or damaged items, and certain special services. Please refer to our Fees & Charges page on the website for detailed information.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+  </div>
+  </div>
+</section>
     <!-- Testimonials -->
 
-    <section class="testimonials mb-8">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 text-center">
-            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" class="rounded-circle mb-3">
-            <p class="lead fst-italic">
-              "This ebook completely transformed my blogging journey. The
-              practical strategies and valuable insights helped me take my blog
-              to new heights. I highly recommend it!"
-            </p>
-            <p class="fw-bold">Kenny Smith - Portland, ME</p>
-
-          </div>
-          <div class="col-md-4 text-center">
-            <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="" class="rounded-circle mb-3">
-            <p class="lead fst-italic">
-               "I'm so grateful for this ebook! It provided me with the guidance
-              and inspiration I needed to create engaging content and build a
-              loyal readership. It's a game-changer!"
-            </p>
-            <p class="fw-bold">Laurie Mitchell - Miami, FL</p>
-
-          </div>
-
-          <div class="col-md-4 text-center">
-            <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="" class="rounded-circle mb-3">
-            <p class="lead fst-italic">
-              "I can't recommend this ebook enough. It's a treasure of blogging
-              wisdom. It helped me unlock my creativity, connect with my
-              audience, and achieve remarkable results."
-            </p>
-            <p class="fw-bold">Henry White - Boston, MA</p>
-
-          </div>
-        </div>
+   <section class="testimonials mb-8">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="" class="rounded-circle mb-3">
+        <p class="lead fst-italic">
+         "The UniVerse Library has made accessing academic resources so much easier. The workshops and events are incredibly beneficial for my studies."
+        </p>
+        <p class="fw-bold">Jack Thompson - Sydney, NSW</p>
       </div>
-    </section>
+      <div class="col-md-4 text-center">
+        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="" class="rounded-circle mb-3">
+        <p class="lead fst-italic">
+         "The professional workshops have been invaluable for my research. The PhD coworking spaces provide a perfect environment for productivity and collaboration."
+        </p>
+   
+        <p class="fw-bold">Emily Davis - Melbourne, VIC</p>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="" class="rounded-circle mb-3">
+        <p class="lead fst-italic">
+          "Having access to a wide range of academic resources and the ability to collaborate with other researchers has greatly enhanced my research experience."
+        </p>
+        <p class="fw-bold">Liam Johnson - Brisbane, QLD</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Download -->
 
@@ -411,17 +571,16 @@
         </div>
         <div class="col-lg-7">
           <div class="text-container text-white d-flex flex-column justify-content-center h-100 md-5">
-            <h2 class="fw-bold">Get Your Free Ebook Now</h2>
-            <p>
-                Unlock the power of knowledge and take your blogging journey to
-                the next level. Our ebook, "Blog Mastery: The Ultimate Guide to
-                Blogging Success," is your key to success.
-              </p>
-              <!-- Form -->
-              <form >
-                 <div class="input-group mb-3">
-                <input type="email" class="form-control" placeholder="Email Address">
-                <button class="btn btn-primary text-white rounded-end"> Download</button>
+           <h2 class="fw-bold">Stay Updated with UniVerse<i class="fa-solid fa-feather"></i>Lib</h2>
+<p>
+    Subscribe to our newsletter to stay informed about the latest events, news, and updates from UniVerse Library. Be the first to know about upcoming workshops, book readings, and special programs.
+</p>
+<!-- Form -->
+<form action="subscribe.php" method="post">
+    <div class="input-group mb-3">
+        <input type="email" class="form-control" name="email" placeholder="Email Address" required>
+        <button class="btn btn-primary text-white rounded-end">Subscribe</button>
+
                 </div>
               </form>
           </div>
@@ -466,7 +625,7 @@
             </ul>
           </div>
           <div class="col-md-4">
-            <p class="text-end d-none d-md-block"> Copyright &copy; Blog Mastery 2024</p>
+            <p class="text-end d-none d-md-block"> Copyright &copy; UniVerse Lib 2024</p>
           </div>
         </div>
       </div>

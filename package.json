@@ -2,7 +2,7 @@
   "name": "univers-public-library",
   "version": "1.0.0",
   "description": "Public library and information services to residents and visitors across the cities of Sydney",
-  "main": "index.js",
+  "main": "index.php",
   "scripts": {
     "sass:build": "sass --no-source-map scss:css",
     "sass:watch": "sass --no-source-map --watch scss:css"

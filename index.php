@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,7 +24,7 @@
 
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
       <div class="container">
-        <a href="index.html" class="navbar-brand fs-3">
+        <a href="index.php" class="navbar-brand fs-3">
           <img src="images/library-logo.png" alt="" width="70" />
           UniVerse<i class="fa-solid fa-feather"></i>Lib
         </a><span> </span>
@@ -38,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a href="index.html" class="nav-link fw-semibold">Home</a>
+              <a href="index.php" class="nav-link fw-semibold">Home</a>
             </li>
             <li class="nav-item">
               <a href="#details" class="nav-link fw-semibold">Details</a>
@@ -51,10 +52,10 @@
               >
             </li> 
          
-        <li class="nav-item ms-4">
+        <li class="nav-item ms-5">
           <a href="#" class="nav-link fw-semibold" data-bs-toggle="modal" data-bs-target="#loginModal"><i class="fa-regular fa-user fa-2x"></i></a>
         </li>
-          <li class="nav-item">
+          <li class="nav-item ms-2">
           <a href="#" class="nav-link fw-semibold btn btn-outline-light px-4" data-bs-toggle="modal" data-bs-target="#signupModal"><i class="fa-regular fa-user-plus"></i></a>
         </li>
             </li>
@@ -64,43 +65,57 @@
     </nav>
 
 <!-- Sign-Up Modal -->
+
 <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="signup.php" method="post" class="p-1">
-          <div class="mb-3">
-            <label for="signupFirstName" class="form-label">First Name</label>
-            <input type="text" class="form-control form-control-md rounded-5 p-2" id="signupFirstName" name="first_name" required>
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="signupModalLabel">Sign Up</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="mb-3">
-            <label for="signupLastName" class="form-label">Last Name</label>
-            <input type="text" class="form-control form-control-md rounded-5 p-2" id="signupLastName" name="last_name" required>
+          <div class="modal-body">
+            <div id="signupErrors" style="display: none;" class="alert alert-danger"></div>
+            <form id="signupForm">
+              <div class="mb-3">
+                <label for="signupFirstName" class="form-label">First Name</label>
+                <input type="text" class="form-control form-control-md rounded-5 p-2" id="signupFirstName" name="first_name" required>
+                <span class="text-danger" id="firstNameError"></span>
+              </div>
+              <div class="mb-3">
+                <label for="signupLastName" class="form-label">Last Name</label>
+                <input type="text" class="form-control form-control-md rounded-5 p-2" id="signupLastName" name="last_name" required>
+                <span class="text-danger" id="lastNameError"></span>
+              </div>
+              <div class="mb-3">
+                <label for="signupEmail" class="form-label">Email Address (Username)</label>
+                <input type="email" class="form-control form-control-md rounded-5 p-2" id="signupEmail" name="email" required>
+                <span class="text-danger" id="emailError"></span>
+              </div>
+              <div class="mb-3">
+                <label for="signupPassword" class="form-label">Password</label>
+                <input type="password" class="form-control form-control-md rounded-5 p-2" id="signupPassword" name="password" required>
+                <span class="text-danger" id="passwordError"></span>
+              </div>
+              <div class="mb-3">
+                <label for="signupRetypePassword" class="form-label">Re-type Password</label>
+                <input type="password" class="form-control form-control-md rounded-5 p-2" id="signupRetypePassword" name="retype_password" required>
+                <span class="text-danger" id="retypePasswordError"></span>
+              </div>
+              <button type="submit" class="btn btn-primary">Sign Up</button>
+            </form>
           </div>
-          <div class="mb-3">
-            <label for="signupEmail" class="form-label">Email Address (Username)</label>
-            <input type="email" class="form-control form-control-md rounded-5 p-2" id="signupEmail" name="email" required>
-          </div>
-          <div class="mb-3">
-            <label for="signupPassword" class="form-label">Password</label>
-            <input type="password" class="form-control form-control-md rounded-5 p-2" id="signupPassword" name="password" required>
-          </div>
-          <div class="mb-3">
-            <label for="signupRetypePassword" class="form-label">Re-type Password</label>
-            <input type="password" class="form-control form-control-md rounded-5 p-2" id="signupRetypePassword" name="retype_password" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Sign Up</button>
-        </form>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+
+
+
+
+
+
 
 <!-- Login Modal -->
+
 <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
@@ -309,7 +324,7 @@
     <strong>Graduate Career Fair:</strong> June 30, 2024 - 11:00 AM at the South Campus Branch
   </li>
 </ul>
-<a href="#header" id="registerBtn" class="btn btn-primary text-white">Register for Event</a>
+<a href="#" id="registerBtn" class="btn btn-primary text-white">Register for Event</a>
 
 
 
@@ -431,9 +446,10 @@
     </div>
 
     <!-- FAQ -->
-<section class="faq mb-6">
+<section class="faq my-5">
   <div class="container">
   <div class="row">
+        <h1 class="text-center mb-4">Frequently Asked Questions</h1>
     <div class="col-12">
     <div class="accordion accordion-flush" id="accordionFlushExample">
   <div class="accordion-item">
@@ -614,7 +630,7 @@
           <div class="col-md-8">
             <ul class="nav">
               <li class="nav-item">
-                <a href="#index.html" class="nav-link link-light">Home</a>
+                <a href="#index.php" class="nav-link link-light">Home</a>
               </li>
               <li class="nav-item">
                 <a href="#details" class="nav-link link-light">Details</a>
@@ -633,5 +649,108 @@
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const signupForm = document.getElementById("signupForm");
+
+  // Real-time first name validation
+  document.getElementById("signupFirstName").addEventListener("input", function () {
+    const firstName = this.value;
+    const errorDiv = document.getElementById("firstNameError");
+
+    if (!/^[a-zA-Z]*$/.test(firstName) || firstName.length > 50) {
+      errorDiv.textContent = "First Name must contain only alpha characters and be no more than 50 characters.";
+    } else {
+      errorDiv.textContent = "";
+    }
+  });
+
+  // Real-time last name validation
+  document.getElementById("signupLastName").addEventListener("input", function () {
+    const lastName = this.value;
+    const errorDiv = document.getElementById("lastNameError");
+
+    if (!/^[a-zA-Z]*$/.test(lastName) || lastName.length > 50) {
+      errorDiv.textContent = "Last Name must contain only alpha characters and be no more than 50 characters.";
+    } else {
+      errorDiv.textContent = "";
+    }
+  });
+
+  // Real-time email validation
+  document.getElementById("signupEmail").addEventListener("input", function () {
+    const email = this.value;
+    const errorDiv = document.getElementById("emailError");
+
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email) || email.length > 100) {
+      errorDiv.textContent = "Invalid email address or too long.";
+    } else {
+      errorDiv.textContent = "";
+    }
+  });
+
+  // Real-time password validation
+  document.getElementById("signupPassword").addEventListener("input", function () {
+    const password = this.value;
+    const errorMessages = [];
+
+    if (password.length < 8) {
+      errorMessages.push("Password must be at least 8 characters long.");
+    }
+    if (!/[A-Z]/.test(password)) {
+      errorMessages.push("Password must contain at least one uppercase letter.");
+    }
+    if (!/[a-z]/.test(password)) {
+      errorMessages.push("Password must contain at least one lowercase letter.");
+    }
+    if (!/[0-9]/.test(password)) {
+      errorMessages.push("Password must contain at least one number.");
+    }
+    if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password)) {
+      errorMessages.push("Password must contain at least one special character.");
+    }
+
+    const errorDiv = document.getElementById("passwordError");
+    errorDiv.innerHTML = errorMessages.join("<br>");
+  });
+
+  // Real-time retype password validation
+  document.getElementById("signupRetypePassword").addEventListener("input", function () {
+    const password = document.getElementById("signupPassword").value;
+    const retypePassword = this.value;
+    const errorDiv = document.getElementById("retypePasswordError");
+
+    if (password !== retypePassword) {
+      errorDiv.textContent = "Passwords do not match.";
+    } else {
+      errorDiv.textContent = "";
+    }
+  });
+
+  // Handle form submission
+  signupForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const formData = new FormData(signupForm);
+
+    fetch("signup.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.success) {
+          alert("Registration successful!");
+          window.location.href = "dashboard.php";
+        } else {
+          const errorsDiv = document.getElementById("signupErrors");
+          errorsDiv.style.display = "block";
+          errorsDiv.innerHTML = "<ul>" + data.errors.map((error) => "<li>" + error + "</li>").join("") + "</ul>";
+        }
+      })
+      .catch((error) => console.error("Error:", error));
+  });
+});
+</script>
+
   </body>
 </html>

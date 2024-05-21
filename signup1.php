@@ -1,8 +1,11 @@
 <?php
 session_start();
-include 'inc/db_config.php';
+include 'inc/db_config.php'; // Ensure this file is correctly configured to connect to your database
 
-header('Content-Type: application/json');
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 $errors = []; // Initialize an array to hold error messages
 
@@ -79,7 +82,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $_SESSION['first_name'] = $first_name;
                 $_SESSION['last_name'] = $last_name;
                 $_SESSION['memberID'] = $stmt->insert_id; // Get the last inserted ID
-                echo json_encode(['success' => true]);
+                echo '<script>alert("Registration successful!")</script>';
+                echo "<script>setTimeout(function(){ window.location.href = 'dashboard.php'; }, 1000);</script>";
                 exit;
             } else {
                 $errors[] = "Error: " . $stmt->error;
@@ -87,9 +91,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // If there are errors, return them as JSON
+    // If there are errors, display them
     if (!empty($errors)) {
-        echo json_encode(['success' => false, 'errors' => $errors]);
+        $_SESSION['errors'] = $errors;
+        $_SESSION['post_data'] = $_POST; // Preserve the posted data
+        header("Location: index.php#signupModal");
         exit;
     }
 }

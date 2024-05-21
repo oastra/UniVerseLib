@@ -15,20 +15,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo '<script>alert("Invalid email address.")</script>';
     } else {
-        // Retrieve the user from the database
-        $sql = "SELECT * FROM users WHERE email='$email'";
-        $result = $conn->query($sql);
+        // Retrieve the user from the database using prepared statements
+        $sql = "SELECT * FROM users WHERE email = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
 
         if ($result->num_rows == 1) {
             $user = $result->fetch_assoc();
             if (password_verify($password, $user['password'])) {
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['role'] = $user['role'];
-                $_SESSION['first_name'] = $user['first_name']; // Store first name in session
-                $_SESSION['last_name'] = $user['last_name']; // Store last name in session
-                $_SESSION['memberID'] = $user['id']; // Store member ID in session
-                echo '<script>alert("Login successful!")</script>';
-                echo "<script>setTimeout(function(){ window.location.href = 'dashboard.php'; }, 1000);</script>";
+                $_SESSION['first_name'] = $user['first_name'];
+                $_SESSION['last_name'] = $user['last_name'];
+                $_SESSION['memberID'] = $user['id'];
+
+                // Redirect based on user role
+                if ($user['role'] === 'admin') {
+                    echo '<script>alert("Login successful!")</script>';
+                    echo "<script>setTimeout(function(){ window.location.href = 'admin_dashboard.php'; }, 1000);</script>";
+                } else {
+                    echo '<script>alert("Login successful!")</script>';
+                    echo "<script>setTimeout(function(){ window.location.href = 'dashboard.php'; }, 1000);</script>";
+                }
                 exit;
             } else {
                 echo '<script>alert("Incorrect password.")</script>';
